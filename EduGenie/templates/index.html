@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduGenie · Learning Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ============= HEADER ============= -->
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark">✦</span>
+        <div class="brand-text">
+          <h1>EduGenie</h1>
+          <p>Google Gemini Powered Learning Assistant</p>
+        </div>
+      </div>
+      <div class="header-status" id="header-status">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Checking service…</span>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- ============= TASK RAIL ============= -->
+      <nav class="task-rail" id="task-rail" aria-label="Choose a learning task">
+        <button class="task-btn is-active" data-task="explain" type="button">
+          <span class="task-icon" aria-hidden="true">◐</span>
+          <span class="task-label">Explain</span>
+        </button>
+        <button class="task-btn" data-task="qa" type="button">
+          <span class="task-icon" aria-hidden="true">?</span>
+          <span class="task-label">Q&amp;A</span>
+        </button>
+        <button class="task-btn" data-task="quiz" type="button">
+          <span class="task-icon" aria-hidden="true">☑</span>
+          <span class="task-label">Quiz</span>
+        </button>
+        <button class="task-btn" data-task="summary" type="button">
+          <span class="task-icon" aria-hidden="true">≣</span>
+          <span class="task-label">Summary</span>
+        </button>
+        <button class="task-btn" data-task="path" type="button">
+          <span class="task-icon" aria-hidden="true">↗</span>
+          <span class="task-label">Recommend Path</span>
+        </button>
+      </nav>
+
+      <!-- ============= WORKSPACE ============= -->
+      <main class="workspace">
+        <section class="input-card">
+          <h2 id="task-title">Explain a concept</h2>
+          <p class="task-description" id="task-description">
+            Enter any topic and EduGenie will break it down in simple terms.
+          </p>
+
+          <form id="task-form" novalidate>
+            <!-- Dynamic fields are injected here by script.js -->
+            <div id="dynamic-fields"></div>
+
+            <button type="submit" class="generate-btn" id="generate-btn">
+              <span class="btn-label">Generate</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+
+          <div class="error-banner" id="error-banner" hidden></div>
+        </section>
+
+        <section class="result-area" id="result-area" aria-live="polite">
+          <div class="result-placeholder" id="result-placeholder">
+            <p>Your results will appear here once you click <strong>Generate</strong>.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
